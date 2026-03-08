@@ -60,6 +60,24 @@ container.appendChild(div)
 
 };
 
+// Load Single Issue
+
+function loadSingle(id){
+
+fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
+
+.then(res=>res.json())
+
+.then(data=>{
+
+showModal(data.data)
+
+})
+
+}
+
+
+// Filter Open       
 
 function loadOpen(){
 
