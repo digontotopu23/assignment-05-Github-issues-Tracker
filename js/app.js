@@ -61,5 +61,22 @@ container.appendChild(div)
 };
 
 
+function loadOpen(){
+
+fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
+
+.then(res=>res.json())
+
+.then(data=>{
+
+const open=data.data.filter(i=>i.status==="open")
+
+displayIssues(open)
+
+})
+
+}
+
 loadIssues();
+
 
