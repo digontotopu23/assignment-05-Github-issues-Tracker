@@ -22,11 +22,55 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- StyleSheet  -->
-     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-     <!-- <h1 class="text-6xl py-10">Github Issues Tracker</h1> -->
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+
+    <div class="navbar bg-white shadow">
+
+        <div class="flex-1">
+            <a class="text-xl font-bold">GitHub Issues Tracker</a>
+        </div>
+
+        <div class="flex gap-2">
+
+            <input id="searchInput" type="text" placeholder="Search issues" class="input input-bordered">
+
+            <button class="btn btn-primary">
+                Search
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Tabs -->
+
+    <div class="p-6 bg-white w-11/12 mx-auto mt-15">
+
+        <div class="tabs tabs-boxed mb-6">
+
+            <button class="tab tab-active">
+                All
+            </button>
+
+            <button class="tab">
+                Open
+            </button>
+
+            <button class="tab">
+                Closed
+            </button>
+
+        </div>
+
+
+         
+
 </body>
 
 </html>
