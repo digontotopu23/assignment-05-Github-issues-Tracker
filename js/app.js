@@ -73,9 +73,28 @@ const open=data.data.filter(i=>i.status==="open")
 
 displayIssues(open)
 
-})
+});
 
-}
+};
+
+// Filter Closed
+
+function loadClosed(){
+
+fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
+
+.then(res=>res.json())
+
+.then(data=>{
+
+const closed=data.data.filter(i=>i.status==="closed")
+
+displayIssues(closed)
+
+});
+
+};
+
 
 loadIssues();
 
