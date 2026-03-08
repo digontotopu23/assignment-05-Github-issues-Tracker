@@ -1,5 +1,22 @@
  const container = document.getElementById("issuesContainer");
 
+ // Load All Issues
+
+function loadIssues(){
+
+container.innerHTML=`<span class="loading loading-spinner loading-lg"></span>`
+
+fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
+
+.then(res=>res.json())
+
+.then(data=>{
+
+displayIssues(data.data)
+
+})
+
+};
 
 function displayIssues(issues){
 
@@ -39,7 +56,10 @@ div.onclick=()=>loadSingle(issue.id)
 
 container.appendChild(div)
 
-})
+});
 
-}
+};
+
+
+loadIssues();
 
