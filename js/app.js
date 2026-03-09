@@ -123,7 +123,7 @@ function showModal(issue) {
     // Update Labels
     const labelsContainer = document.getElementById("modalLabels");
     labelsContainer.innerHTML = issue.labels.map(l => 
-        `<span class="badge badge-outline badge-warning text-[11px] font-bold uppercase px-3 py-3">🏷️ ${l}</span>`
+        `<span class="badge badge-outline badge-warning text-[11px] font-bold uppercase px-3 py-3"> ${l}</span>`
     ).join("");
 
     issueModal.showModal();
