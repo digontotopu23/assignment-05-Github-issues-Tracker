@@ -72,10 +72,27 @@ fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
 
 showModal(data.data)
 
-})
+});
+
+};
+
+// Modal
+
+function showModal(issue){
+
+document.getElementById("modalTitle").innerText=issue.title
+document.getElementById("modalDesc").innerText=issue.description
+document.getElementById("modalAuthor").innerText="Author: "+issue.author
+document.getElementById("modalPriority").innerText="Priority: "+issue.priority
+document.getElementById("modalDate").innerText=issue.createdAt
+
+issueModal.showModal()
 
 }
 
+function closeModal(){
+issueModal.close()
+};
 
 // Filter Open       
 
@@ -110,6 +127,25 @@ const closed=data.data.filter(i=>i.status==="closed")
 displayIssues(closed)
 
 });
+
+};
+
+
+// Search
+
+function searchIssue(){
+
+const text=document.getElementById("searchInput").value
+
+fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${text}`)
+
+.then(res=>res.json())
+
+.then(data=>{
+
+displayIssues(data.data)
+
+})
 
 };
 

@@ -39,7 +39,7 @@
 
             <input id="searchInput" type="text" placeholder="Search issues" class="input input-bordered">
 
-            <button class="btn btn-primary">
+            <button onclick="searchIssue()" class="btn btn-primary">
                 Search
             </button>
 
@@ -55,7 +55,7 @@
 
         <div class="tabs tabs-boxed space-x-2 mb-6">
 
-            <button onclick="loadIssues()" class="tab tab-active bg-blue-600 text-white px-8 py-1 rounded">
+            <button onclick="loadIssues()" class="tab tab-active btn btn-primary text-white px-8 py-1 rounded">
                 All
             </button>
 
@@ -76,6 +76,24 @@
         </div>
 
     </div>
+
+    <dialog id="issueModal" class="modal">
+        <div class="modal-box">
+
+            <h3 id="modalTitle" class="font-bold text-lg"></h3>
+
+            <p id="modalDesc" class="py-2"></p>
+
+            <p id="modalAuthor"></p>
+            <p id="modalPriority"></p>
+            <p id="modalDate"></p>
+
+            <div class="modal-action">
+                <button class="btn" onclick="closeModal()">Close</button>
+            </div>
+
+        </div>
+    </dialog>
 
     <script src="js/app.js"></script>
 </body>
