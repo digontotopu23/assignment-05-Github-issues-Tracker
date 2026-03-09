@@ -28,7 +28,7 @@ function loadIssues() {
 };
 
 function displayIssues(issues) {
-    
+
     const countElement = document.getElementById("totalIssueCount");
     if (countElement) {
         countElement.innerText = issues.length;
@@ -40,8 +40,8 @@ function displayIssues(issues) {
 
         const labelsHTML = issue.labels.map(l =>
             `<span class="badge badge-warning badge-outline badge-xs text-[10px] uppercase font-bold">${l}</span>`
-        ).join("") 
-        || "";
+        ).join("")
+            || "";
 
         const div = document.createElement("div")
 
@@ -105,28 +105,33 @@ function showModal(issue) {
     document.getElementById("modalDate").innerText = issue.createdAt;
     document.getElementById("modalAssigneeName").innerText = issue.author; // Assuming author as assignee
 
-    
+
     const statusBadge = document.getElementById("modalStatusBadge");
     statusBadge.innerText = issue.status;
-    statusBadge.className = issue.status === 'open' 
-        ? "badge badge-success text-white font-semibold py-3" 
+    statusBadge.className = issue.status === 'open'
+        ? "badge badge-success text-white font-semibold py-3"
         : "badge badge-secondary text-white font-semibold py-3";
 
 
     const priorityBadge = document.getElementById("modalPriorityBadge");
     priorityBadge.innerText = issue.priority;
     const pColor = issue.priority.toLowerCase();
-    priorityBadge.className = `badge text-white text-[10px] font-bold uppercase ${
-        pColor === 'high' ? 'bg-red-500' : pColor === 'medium' ? 'bg-orange-400' : 'bg-blue-400'
-    }`;
+    priorityBadge.className = `badge text-white text-[10px] font-bold uppercase ${pColor === 'high' ? 'bg-red-500' : pColor === 'medium' ? 'bg-orange-400' : 'bg-blue-400'
+        }`;
 
     // Update Labels
     const labelsContainer = document.getElementById("modalLabels");
-    labelsContainer.innerHTML = issue.labels.map(l => 
+    labelsContainer.innerHTML = issue.labels.map(l =>
         `<span class="badge badge-outline badge-warning text-[11px] font-bold uppercase px-3 py-3"> ${l}</span>`
     ).join("");
 
     issueModal.showModal();
+}
+
+
+function closeModal() {
+    const modal = document.getElementById("issueModal");
+    modal.close(); 
 }
 
 // Filter Open       
@@ -198,13 +203,13 @@ function setTab(tab) {
     document.getElementById(tab + "Tab").classList.add("btn-primary", "text-white")
 
     if (tab === "all") {
-        loadIssues()
+        loadIssues();
     }
     else if (tab === "open") {
-        loadOpen()
+        loadOpen();
     }
     else {
-        loadClosed()
+        loadClosed();
     };
 
 };
